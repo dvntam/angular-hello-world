@@ -1,4 +1,32 @@
 <h1> About works</h1>
-
-<h3> Bạn đã là {{age}}</h3>
+Hello! Bạn có <span class="messpost" >&nbsp; {{posts?.length}}&nbsp;</span> tin nhắn
+<br>
+<h3 class="overAge" appBold> Chào bạn {{name}}</h3>
+<h3 class="overAge" appBold> Bạn đã là {{age}} tuổi</h3>
+<!-- 
 <button (click)="tangtuoi()"> Tăng tuổi</button>
+<br><br>
+Comments: <br>
+<span>{{comments |json}}</span>
+<br>
+Comments[0]: <br>
+<span *ngIf="comments">{{comments[0] | json}}</span> -->
+Posts: <br>
+<!-- <div *ngFor="let p of posts"> 
+    <li> {{p | json}}</li>
+</div> -->
+<table id="customers" style="border-collapse: collapse;">
+    <tr >
+        <th>Id</th>
+        <th>Title</th>
+        <th>Author</th>
+    </tr>
+    <tr *ngFor="let p of posts">
+        <td>{{p?.id}}</td>
+        <td>{{p?.title}}</td>
+        <td>{{p?.author}}</td>
+    </tr>
+</table>
+
+
+<button (click)="addPost()">Thêm post mới</button>

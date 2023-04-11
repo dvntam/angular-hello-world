@@ -1,26 +1,54 @@
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { HttpClient, 
+  HttpErrorResponse, 
+  HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, Observable, throwError } from 'rxjs';
+import { catchError, 
+         Observable, 
+        throwError } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root',
-})
+    providedIn: 'root',
+ })
 
-const httpOptions = {
-  headers : new HttpHeaders ({
-    'Content-Type': 'application/json',
-    // Authorization: 'my-auth-token',
-  }),
-};
 export class ServerHttpService {
+  getStudents() {
+    throw new Error('Method not implemented.');
+  }
+  private httpOptions = {
+    headers : new HttpHeaders ({
+      'Content-Type': 'application/json',
+      // Authorization: 'my-auth-token',
+    }),
+  };
+  private REST_API_SERVER = 'http://localhost:3000';
 
   constructor(private httpClient: HttpClient) { }
-  private REST_API_SERVER = 'http://localhost:3000';
   
-  public getProfile(): Observable<any> {
+ public getProfile(): Observable<any> {
     const url = `${this.REST_API_SERVER}/profile`;
     return this.httpClient
-      .get<any>(url, httpOptions)
+      .get<any>(url, this.httpOptions)
+      .pipe(catchError(this.handleError));
+  }
+ 
+  public getComments(){
+    const url = `${this.REST_API_SERVER}/comments`;
+    return this.httpClient
+      .get<any>(url, this.httpOptions)
+      .pipe(catchError(this.handleError));
+  }
+
+
+  public getPosts(){
+    const url = `${this.REST_API_SERVER}/posts`;
+    return this.httpClient
+      .get<any>(url, this.httpOptions)
+      .pipe(catchError(this.handleError));
+  }
+  public addPosts(data: any) {
+    const url = `${this.REST_API_SERVER}/posts`;
+    return this.httpClient
+      .post<any>(url, data, this.httpOptions)
       .pipe(catchError(this.handleError));
   }
 
@@ -39,3 +67,5 @@ export class ServerHttpService {
     return throwError('Something bad happened; please try again later.');
   }
 }
+
+
