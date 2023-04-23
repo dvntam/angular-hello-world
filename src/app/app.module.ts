@@ -29,6 +29,10 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { BoldDirective } from './Directives/bold.directive';
 import { FormComponent } from './form/form.component';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
+import { ModelsComponent } from './models/models.component';
+import { StudentsComponent } from './students/students.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { StudentFormComponent } from './student-form/student-form.component';
 
 
 @NgModule({
@@ -40,6 +44,10 @@ import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
     BoldDirective,
     FormComponent,
     ReactiveFormComponent,
+    ModelsComponent,
+    StudentsComponent,
+    DashboardComponent,
+    StudentFormComponent,
 
   ],
   imports: [

@@ -1,4 +1,28 @@
 {
+  "students": [
+    {
+      "id": 1,
+      "code": "MSV-01",
+      "gender": "female",
+      "firstName": "Tam",
+      "lastName": "Doan",
+      "dob": "1900/1/1",
+      "email": "codelaghien@gmail.com",
+      "phone": "123-456-7899",
+      "picture": ""
+    },
+    {
+      "id": 2,
+      "code": "MSV-01",
+      "gender": "male",
+      "firstName": "A",
+      "lastName": "Nguyễn",
+      "dob": "1900/1/1",
+      "email": "codelaghien@gmail.com",
+      "phone": "123-456-7899",
+      "picture": ""
+    }
+  ],
   "posts": [
     {
       "id": 1,

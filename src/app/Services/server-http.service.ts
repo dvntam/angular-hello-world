@@ -5,15 +5,14 @@ import { Injectable } from '@angular/core';
 import { catchError, 
          Observable, 
         throwError } from 'rxjs';
+import { Student } from '../models/student';
 
 @Injectable({
     providedIn: 'root',
  })
 
 export class ServerHttpService {
-  getStudents() {
-    throw new Error('Method not implemented.');
-  }
+ 
   private httpOptions = {
     headers : new HttpHeaders ({
       'Content-Type': 'application/json',
@@ -24,6 +23,18 @@ export class ServerHttpService {
 
   constructor(private httpClient: HttpClient) { }
   
+  public getStudents() {
+    const url = `${this.REST_API_SERVER}/students`;
+    return this.httpClient
+      .get<any>(url, this.httpOptions)
+      .pipe(catchError(this.handleError));
+  }
+  public addStudents(data: Student) {
+    const url = `${this.REST_API_SERVER}/students`;
+    return this.httpClient
+      .post<any>(url,data, this.httpOptions)
+      .pipe(catchError(this.handleError));
+  }
  public getProfile(): Observable<any> {
     const url = `${this.REST_API_SERVER}/profile`;
     return this.httpClient
